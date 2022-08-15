@@ -1179,7 +1179,7 @@ pub trait StructOpt {
     /// case of `--help` or `--version`, to achieve the same behavior as
     /// [`from_iter()`][StructOpt::from_iter] you must call [`.exit()`][clap::Error::exit] on the error value.
     ///
-    /// **NOTE**: The first argument will be parsed as the binary name unless
+    /// **NOTE**: The first argument is considered to be the binary name (argv[0]), and will be ignored, unless 
     /// [`clap::AppSettings::NoBinaryName`] has been used.
     fn from_iter_safe<I>(iter: I) -> Result<Self, clap::Error>
     where
